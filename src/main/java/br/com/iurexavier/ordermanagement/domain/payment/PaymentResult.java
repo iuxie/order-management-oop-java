@@ -5,10 +5,7 @@ public class PaymentResult {
     private final String message;
 
     public PaymentResult(boolean success, String message) {
-        if (message == null || message.isBlank()) {
-            throw new IllegalArgumentException("A mensagem é obrigatória!");
-        }
-
+        validateFields(message);
         this.success = success;
         this.message = message;
     }
@@ -19,5 +16,11 @@ public class PaymentResult {
 
     public String getMessage() {
         return message;
+    }
+
+    private void validateFields(String message) {
+        if (message == null || message.isBlank()) {
+            throw new IllegalArgumentException("A mensagem é obrigatória!");
+        }
     }
 }
