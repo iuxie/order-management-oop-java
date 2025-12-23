@@ -12,7 +12,7 @@ public class PaymentProcessor {
         this.paymentMethod = paymentMethod;
     }
 
-    public PaymentResult execute() {
+    public PaymentResult process() {
         validateOrderForPayment(order);
         PaymentResult result = paymentMethod.pay(order);
         if (result.isSuccess()) {

@@ -7,7 +7,7 @@ import br.com.iurexavier.ordermanagement.domain.payment.PaymentResult;
 
 public class PayOrderUseCase {
     public PaymentResult execute(Order order, PaymentMethod paymentMethod) {
-        PaymentProcessor paymentProcessor = new PaymentProcessor(order, paymentMethod);
-        return paymentProcessor.execute();
+        PaymentProcessor processPayment = new PaymentProcessor(order, paymentMethod);
+        return processPayment.process();
     }
 }
